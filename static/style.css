@@ -1,0 +1,56 @@
+body {
+    margin: 0;
+    font-family: Arial;
+    display: flex;
+    background: #f8fafc;
+}
+
+.sidebar {
+    width: 220px;
+    height: 100vh;
+    background: #1e293b;
+    color: white;
+    padding: 20px;
+}
+
+.sidebar a {
+    display: block;
+    color: white;
+    padding: 10px;
+    margin-bottom: 10px;
+    text-decoration: none;
+    background: #334155;
+    border-radius: 6px;
+}
+
+.content {
+    flex: 1;
+    padding: 30px;
+}
+
+table {
+    width: 100%;
+    background: white;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th,
+td {
+    padding: 12px;
+    border: 1px solid #ddd;
+}
+
+input {
+    padding: 10px;
+    margin: 5px;
+}
+
+button {
+    padding: 10px 15px;
+    background: #2563eb;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}

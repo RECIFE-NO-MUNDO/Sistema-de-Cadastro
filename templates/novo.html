@@ -1,0 +1,128 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="card shadow">
+
+    <div class="card-header bg-white">
+        <h4>Cadastrar aluno</h4>
+    </div>
+
+    <div class="card-body">
+
+        <form method="post">
+
+            <div class="row">
+
+                <div class="col-md-6 mb-3">
+                    <label>Nome completo</label>
+                    <input class="form-control" name="nome">
+                </div>
+
+                <div class="col-md-3 mb-3">
+                    <label>Data nascimento</label>
+                    <input class="form-control" name="nascimento">
+                </div>
+
+                <div class="col-md-3 mb-3">
+                    <label>País</label>
+                    <input class="form-control" name="pais">
+                </div>
+
+                <div class="col-md-6 mb-3">
+                    <label>Escola</label>
+                    <input class="form-control" name="escola">
+                </div>
+
+                <div class="col-md-6 mb-3">
+                    <label>Endereço</label>
+                    <input class="form-control" name="endereco">
+                </div>
+
+                <div class="col-md-4 mb-3">
+                    <label>E-mail</label>
+                    <input class="form-control" name="email">
+                </div>
+
+                <div class="col-md-4 mb-3">
+                    <label>Telefone</label>
+                    <input class="form-control" name="telefone">
+                </div>
+
+                <div class="col-md-4 mb-3">
+                    <label>Responsável</label>
+                    <input class="form-control" name="responsavel">
+                </div>
+
+                <div class="col-md-4 mb-3">
+                    <label>Telefone responsável</label>
+                    <input class="form-control" name="telefone_responsavel">
+                </div>
+
+                <div class="col-md-4 mb-3">
+                    <label>Email responsável</label>
+                    <input class="form-control" name="email_responsavel">
+                </div>
+
+                <div class="col-md-4 mb-3">
+                    <label>Parentesco</label>
+                    <input class="form-control" name="parentesco">
+                </div>
+
+                <div class="col-md-4 mb-3">
+                    <label>Com quem mora</label>
+                    <input class="form-control" name="mora_com">
+                </div>
+
+                <div class="col-md-4 mb-3">
+                    <label>País residência</label>
+                    <input class="form-control" name="pais_residencia">
+                </div>
+
+                <div class="col-md-4 mb-3">
+                    <label>Saúde</label>
+                    <input class="form-control" name="saude">
+                </div>
+
+                <div class="col-md-4 mb-3">
+                    <label>Medicamento</label>
+                    <input class="form-control" name="medicamento">
+                </div>
+
+                <div class="col-md-4 mb-3">
+                    <label>Status documentação</label>
+                    <input class="form-control" name="status_doc">
+                </div>
+
+                <div class="col-md-4 mb-3">
+                    <label>Possui passaporte</label>
+                    <select class="form-control" name="passaporte">
+                        <option>Sim</option>
+                        <option>Não</option>
+                    </select>
+                </div>
+
+                <div class="col-md-4 mb-3">
+                    <label>Data emissão passaporte</label>
+                    <input class="form-control" name="emissao_passaporte">
+                </div>
+
+                <div class="col-md-4 mb-3">
+                    <label>Data visto</label>
+                    <input class="form-control" name="visto">
+                </div>
+
+            </div>
+
+            <hr>
+
+            <button class="btn btn-success">Salvar aluno</button>
+            <a href="/" class="btn btn-secondary">Cancelar</a>
+
+        </form>
+
+    </div>
+
+</div>
+
+{% endblock %}

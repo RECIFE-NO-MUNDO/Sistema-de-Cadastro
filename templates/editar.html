@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>Editar aluno</h1>
+
+<form method="post">
+
+    <p><input name="nome" value="{{ aluno[1] }}"></p>
+    <p><input name="nascimento" value="{{ aluno[2] }}"></p>
+    <p><input name="escola" value="{{ aluno[3] }}"></p>
+    <p><input name="pais" value="{{ aluno[4] }}"></p>
+    <p><input name="endereco" value="{{ aluno[5] }}"></p>
+    <p><input name="email" value="{{ aluno[6] }}"></p>
+    <p><input name="telefone" value="{{ aluno[7] }}"></p>
+    <p><input name="responsavel" value="{{ aluno[8] }}"></p>
+    <p><input name="telefone_responsavel" value="{{ aluno[9] }}"></p>
+    <p><input name="email_responsavel" value="{{ aluno[10] }}"></p>
+    <p><input name="parentesco" value="{{ aluno[11] }}"></p>
+    <p><input name="mora_com" value="{{ aluno[12] }}"></p>
+    <p><input name="pais_residencia" value="{{ aluno[13] }}"></p>
+    <p><input name="saude" value="{{ aluno[14] }}"></p>
+    <p><input name="medicamento" value="{{ aluno[15] }}"></p>
+    <p><input name="status_doc" value="{{ aluno[16] }}"></p>
+    <p><input name="passaporte" value="{{ aluno[17] }}"></p>
+    <p><input name="emissao_passaporte" value="{{ aluno[18] }}"></p>
+    <p><input name="visto" value="{{ aluno[19] }}"></p>
+
+    <p>
+        <button type="submit">Salvar alterações</button>
+    </p>
+
+</form>
+
+{% endblock %}

@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="card shadow">
+
+    <div class="card-header bg-white">
+        <h4>Ficha do aluno</h4>
+    </div>
+
+    <div class="card-body">
+
+        <div class="row">
+
+            <div class="col-md-6 mb-3"><b>Nome:</b> {{ aluno[1] }}</div>
+            <div class="col-md-3 mb-3"><b>Nascimento:</b> {{ aluno[2] }}</div>
+            <div class="col-md-3 mb-3"><b>País:</b> {{ aluno[4] }}</div>
+
+            <div class="col-md-6 mb-3"><b>Escola:</b> {{ aluno[3] }}</div>
+            <div class="col-md-6 mb-3"><b>Endereço:</b> {{ aluno[5] }}</div>
+
+            <div class="col-md-4 mb-3"><b>Email:</b> {{ aluno[6] }}</div>
+            <div class="col-md-4 mb-3"><b>Telefone:</b> {{ aluno[7] }}</div>
+            <div class="col-md-4 mb-3"><b>Responsável:</b> {{ aluno[8] }}</div>
+
+            <div class="col-md-4 mb-3"><b>Telefone resp:</b> {{ aluno[9] }}</div>
+            <div class="col-md-4 mb-3"><b>Email resp:</b> {{ aluno[10] }}</div>
+            <div class="col-md-4 mb-3"><b>Parentesco:</b> {{ aluno[11] }}</div>
+
+            <div class="col-md-4 mb-3"><b>Mora com:</b> {{ aluno[12] }}</div>
+            <div class="col-md-4 mb-3"><b>País residência:</b> {{ aluno[13] }}</div>
+            <div class="col-md-4 mb-3"><b>Saúde:</b> {{ aluno[14] }}</div>
+
+            <div class="col-md-4 mb-3"><b>Medicamento:</b> {{ aluno[15] }}</div>
+            <div class="col-md-4 mb-3"><b>Status doc:</b> {{ aluno[16] }}</div>
+            <div class="col-md-4 mb-3"><b>Passaporte:</b> {{ aluno[17] }}</div>
+
+            <div class="col-md-4 mb-3"><b>Emissão:</b> {{ aluno[18] }}</div>
+            <div class="col-md-4 mb-3"><b>Visto:</b> {{ aluno[19] }}</div>
+
+        </div>
+
+        <hr>
+
+        <a href="/editar/{{ aluno[0] }}" class="btn btn-warning">Editar</a>
+        <a href="/excluir/{{ aluno[0] }}" class="btn btn-danger">Excluir</a>
+        <a href="/pdf_aluno/{{ aluno[0] }}" class="btn btn-primary">Exportar PDF</a>
+        <a href="/" class="btn btn-secondary">Voltar</a>
+
+    </div>
+
+</div>
+
+{% endblock %}
