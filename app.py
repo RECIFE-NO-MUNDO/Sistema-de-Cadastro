@@ -6,14 +6,13 @@ from reportlab.pdfgen import canvas
 
 app = Flask(__name__)
 
-@app.route("/")
-def home():
-    return render_template("index.html")
-
 DB = "alunos.db"
 UPLOAD_FOLDER = "uploads"
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 
+@app.route("/")
+def home():
+    return render_template("index.html")
 
 def conectar():
     return sqlite3.connect(DB)
