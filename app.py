@@ -1,10 +1,11 @@
-from flask import Flask, render_template, request, redirect, send_file
+from flask import Flask, render_template, request, redirect, send_file, session
 import sqlite3
 import pandas as pd
 import os
 from reportlab.pdfgen import canvas
 
 app = Flask(__name__)
+app.secret_key = "sistemaalunos123"
 
 DB = "alunos.db"
 UPLOAD_FOLDER = "uploads"
@@ -47,9 +48,25 @@ def criar_banco():
     conn.close()
 
 
-@app.route("/")
+@app.route("/login", methods=["GET", "POST"])
+
+def login():
+    if request.method == "POST":
+        usuario = request.form["usuario"]
+        senha = request.form["senha"]
+
+        if usuario == "admin" and senha == "123456":
+            session["logado"] = True
+            return redirect("/")
+
+    return render_template("login.html")
+
+
 @app.route("/")
 def dashboard():
+    if not session.get("logado"):
+        return redirect("/login")
+
     busca = request.args.get("busca", "")
     escola = request.args.get("escola", "")
     pais = request.args.get("pais", "")
