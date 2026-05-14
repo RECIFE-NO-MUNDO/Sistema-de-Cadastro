@@ -44,17 +44,35 @@ def criar_banco():
     )
     """)
 
+    cursor.execute("""
+    CREATE TABLE IF NOT EXISTS usuarios (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        usuario TEXT UNIQUE,
+        senha TEXT
+    )
+    """)
+
     conn.commit()
     conn.close()
 
 
+@app.route("/login", methods=["GET", "POST"])
 @app.route("/login", methods=["GET", "POST"])
 def login():
     if request.method == "POST":
         usuario = request.form["usuario"]
         senha = request.form["senha"]
 
-        if usuario == "admin" and senha == "123456":
+        conn = conectar()
+
+        user = conn.execute(
+            "SELECT * FROM usuarios WHERE usuario=? AND senha=?",
+            (usuario, senha)
+        ).fetchone()
+
+        conn.close()
+
+        if user:
             session["logado"] = True
             return redirect("/")
 
