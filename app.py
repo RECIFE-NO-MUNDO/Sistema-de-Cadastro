@@ -10,10 +10,6 @@ DB = "alunos.db"
 UPLOAD_FOLDER = "uploads"
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 
-@app.route("/")
-def home():
-    return render_template("dashboard.html")
-
 def conectar():
     return sqlite3.connect(DB)
 
@@ -168,6 +164,7 @@ def editar(id):
 @app.route("/importar", methods=["POST"])
 def importar():
     arquivo = request.files["arquivo"]
+
     caminho = os.path.join(UPLOAD_FOLDER, arquivo.filename)
     arquivo.save(caminho)
 
@@ -184,7 +181,27 @@ def importar():
             medicamento,status_doc,passaporte,
             emissao_passaporte,visto
         ) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
-        """, tuple(row))
+        """, (
+            row.get("Nome completo", ""),
+            row.get("Data de nascimento", ""),
+            row.get("Escola", ""),
+            row.get("País", ""),
+            row.get("Endereço", ""),
+            row.get("E-mail", ""),
+            row.get("Telefone", ""),
+            row.get("Responsável", ""),
+            row.get("Telefone do responsável", ""),
+            row.get("E-mail do responsável", ""),
+            row.get("Grau de parentesco", ""),
+            row.get("Com quem mora", ""),
+            row.get("País (residência)", ""),
+            row.get("Observação de saúde", ""),
+            row.get("Medicamento", ""),
+            row.get("Status Documentação", ""),
+            row.get("Possui passaporte", ""),
+            row.get("Data de emissão de passaporte", ""),
+            row.get("Data de visto", "")
+        ))
 
     conn.commit()
     conn.close()
