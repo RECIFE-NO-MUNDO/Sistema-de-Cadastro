@@ -302,7 +302,17 @@ def pdf_aluno(id):
     c.save()
 
     return send_file(arquivo, as_attachment=True)
+    
+   @app.route("/excluir_todos")
+    def excluir_todos():
+      conn = conectar()
 
+      conn.execute("DELETE FROM alunos")
+
+      conn.commit()
+      conn.close()
+
+    return redirect("/")
 
 if __name__ == "__main__":
     criar_banco()
