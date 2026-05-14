@@ -57,7 +57,6 @@ def criar_banco():
 
 
 @app.route("/login", methods=["GET", "POST"])
-@app.route("/login", methods=["GET", "POST"])
 def login():
     if request.method == "POST":
         usuario = request.form["usuario"]
@@ -344,7 +343,24 @@ def excluir_todos():
     conn.commit()
     conn.close()
     return redirect("/")
+    
+@app.route("/cadastrar_usuario", methods=["GET", "POST"])
+def cadastrar_usuario():
+    if request.method == "POST":
+        usuario = request.form["usuario"]
+        senha = request.form["senha"]
 
+        conn = conectar()
+        conn.execute(
+            "INSERT INTO usuarios (usuario, senha) VALUES (?, ?)",
+            (usuario, senha)
+        )
+        conn.commit()
+        conn.close()
+
+        return redirect("/login")
+
+    return render_template("cadastrar_usuario.html")
 
 if __name__ == "__main__":
     criar_banco()
