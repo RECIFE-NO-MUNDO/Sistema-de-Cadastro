@@ -361,7 +361,25 @@ def cadastrar_usuario():
         return redirect("/login")
 
     return render_template("cadastrar_usuario.html")
+    
+@app.route("/criar_usuarios")
+def criar_usuarios():
+    conn = conectar()
+    cursor = conn.cursor()
 
+    cursor.execute("""
+    CREATE TABLE IF NOT EXISTS usuarios (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        usuario TEXT UNIQUE,
+        senha TEXT
+    )
+    """)
+
+    conn.commit()
+    conn.close()
+
+    return "Tabela usuarios criada com sucesso"
+    
 if __name__ == "__main__":
     criar_banco()
     app.run(host="0.0.0.0", port=int(
