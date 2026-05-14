@@ -2,34 +2,120 @@
 
 {% block content %}
 
-<h1>Editar aluno</h1>
+<div class="card shadow">
+    <div class="card-header bg-white">
+        <h4>Editar aluno</h4>
+    </div>
 
-<form method="post">
+    <div class="card-body">
 
-    <p><input name="nome" value="{{ aluno[1] }}"></p>
-    <p><input name="nascimento" value="{{ aluno[2] }}"></p>
-    <p><input name="escola" value="{{ aluno[3] }}"></p>
-    <p><input name="pais" value="{{ aluno[4] }}"></p>
-    <p><input name="endereco" value="{{ aluno[5] }}"></p>
-    <p><input name="email" value="{{ aluno[6] }}"></p>
-    <p><input name="telefone" value="{{ aluno[7] }}"></p>
-    <p><input name="responsavel" value="{{ aluno[8] }}"></p>
-    <p><input name="telefone_responsavel" value="{{ aluno[9] }}"></p>
-    <p><input name="email_responsavel" value="{{ aluno[10] }}"></p>
-    <p><input name="parentesco" value="{{ aluno[11] }}"></p>
-    <p><input name="mora_com" value="{{ aluno[12] }}"></p>
-    <p><input name="pais_residencia" value="{{ aluno[13] }}"></p>
-    <p><input name="saude" value="{{ aluno[14] }}"></p>
-    <p><input name="medicamento" value="{{ aluno[15] }}"></p>
-    <p><input name="status_doc" value="{{ aluno[16] }}"></p>
-    <p><input name="passaporte" value="{{ aluno[17] }}"></p>
-    <p><input name="emissao_passaporte" value="{{ aluno[18] }}"></p>
-    <p><input name="visto" value="{{ aluno[19] }}"></p>
+        <form method="post">
 
-    <p>
-        <button type="submit">Salvar alterações</button>
-    </p>
+            <div class="row">
 
-</form>
+                <div class="col-md-6 mb-3">
+                    <label>Nome completo</label>
+                    <input name="nome" class="form-control" value="{{ aluno[1] }}">
+                </div>
+
+                <div class="col-md-3 mb-3">
+                    <label>Data nascimento</label>
+                    <input name="nascimento" class="form-control" value="{{ aluno[2] }}">
+                </div>
+
+                <div class="col-md-3 mb-3">
+                    <label>Escola</label>
+                    <input name="escola" class="form-control" value="{{ aluno[3] }}">
+                </div>
+
+                <div class="col-md-4 mb-3">
+                    <label>País</label>
+                    <input name="pais" class="form-control" value="{{ aluno[4] }}">
+                </div>
+
+                <div class="col-md-8 mb-3">
+                    <label>Endereço</label>
+                    <input name="endereco" class="form-control" value="{{ aluno[5] }}">
+                </div>
+
+                <div class="col-md-6 mb-3">
+                    <label>E-mail</label>
+                    <input name="email" class="form-control" value="{{ aluno[6] }}">
+                </div>
+
+                <div class="col-md-6 mb-3">
+                    <label>Telefone</label>
+                    <input name="telefone" class="form-control" value="{{ aluno[7] }}">
+                </div>
+
+                <div class="col-md-6 mb-3">
+                    <label>Responsável</label>
+                    <input name="responsavel" class="form-control" value="{{ aluno[8] }}">
+                </div>
+
+                <div class="col-md-6 mb-3">
+                    <label>Telefone responsável</label>
+                    <input name="telefone_responsavel" class="form-control" value="{{ aluno[9] }}">
+                </div>
+
+                <div class="col-md-6 mb-3">
+                    <label>E-mail responsável</label>
+                    <input name="email_responsavel" class="form-control" value="{{ aluno[10] }}">
+                </div>
+
+                <div class="col-md-3 mb-3">
+                    <label>Parentesco</label>
+                    <input name="parentesco" class="form-control" value="{{ aluno[11] }}">
+                </div>
+
+                <div class="col-md-3 mb-3">
+                    <label>Com quem mora</label>
+                    <input name="mora_com" class="form-control" value="{{ aluno[12] }}">
+                </div>
+
+                <div class="col-md-4 mb-3">
+                    <label>País residência</label>
+                    <input name="pais_residencia" class="form-control" value="{{ aluno[13] }}">
+                </div>
+
+                <div class="col-md-4 mb-3">
+                    <label>Saúde</label>
+                    <input name="saude" class="form-control" value="{{ aluno[14] }}">
+                </div>
+
+                <div class="col-md-4 mb-3">
+                    <label>Medicamento</label>
+                    <input name="medicamento" class="form-control" value="{{ aluno[15] }}">
+                </div>
+
+                <div class="col-md-4 mb-3">
+                    <label>Status documentação</label>
+                    <input name="status_doc" class="form-control" value="{{ aluno[16] }}">
+                </div>
+
+                <div class="col-md-3 mb-3">
+                    <label>Passaporte</label>
+                    <input name="passaporte" class="form-control" value="{{ aluno[17] }}">
+                </div>
+
+                <div class="col-md-3 mb-3">
+                    <label>Emissão passaporte</label>
+                    <input name="emissao_passaporte" class="form-control" value="{{ aluno[18] }}">
+                </div>
+
+                <div class="col-md-3 mb-3">
+                    <label>Visto</label>
+                    <input name="visto" class="form-control" value="{{ aluno[19] }}">
+                </div>
+
+            </div>
+
+            <button class="btn btn-success">Salvar alterações</button>
+            <a href="/" class="btn btn-secondary">Voltar</a>
+
+        </form>
+
+    </div>
+</div>
 
 {% endblock %}
