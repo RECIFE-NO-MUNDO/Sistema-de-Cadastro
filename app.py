@@ -303,7 +303,7 @@ def pdf_aluno(id):
 
     return send_file(arquivo, as_attachment=True)
     
-   @app.route("/excluir_todos")
+@app.route("/excluir_todos")
     def excluir_todos():
       conn = conectar()
 
