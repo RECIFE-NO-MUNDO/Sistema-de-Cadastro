@@ -44,14 +44,6 @@ def criar_banco():
     )
     """)
 
-    cursor.execute("""
-    CREATE TABLE IF NOT EXISTS usuarios (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
-        usuario TEXT UNIQUE,
-        senha TEXT
-    )
-    """)
-
     conn.commit()
     conn.close()
 
@@ -62,16 +54,7 @@ def login():
         usuario = request.form["usuario"]
         senha = request.form["senha"]
 
-        conn = conectar()
-
-        user = conn.execute(
-            "SELECT * FROM usuarios WHERE usuario=? AND senha=?",
-            (usuario, senha)
-        ).fetchone()
-
-        conn.close()
-
-        if user:
+        if usuario == "admin" and senha == "123456":
             session["logado"] = True
             return redirect("/")
 
@@ -344,41 +327,6 @@ def excluir_todos():
     conn.close()
     return redirect("/")
     
-@app.route("/cadastrar_usuario", methods=["GET", "POST"])
-def cadastrar_usuario():
-    if request.method == "POST":
-        usuario = request.form["usuario"]
-        senha = request.form["senha"]
-
-        conn = conectar()
-        conn.execute(
-            "INSERT INTO usuarios (usuario, senha) VALUES (?, ?)",
-            (usuario, senha)
-        )
-        conn.commit()
-        conn.close()
-
-        return redirect("/login")
-
-    return render_template("cadastrar_usuario.html")
-    
-@app.route("/criar_usuarios")
-def criar_usuarios():
-    conn = conectar()
-    cursor = conn.cursor()
-
-    cursor.execute("""
-    CREATE TABLE IF NOT EXISTS usuarios (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
-        usuario TEXT UNIQUE,
-        senha TEXT
-    )
-    """)
-
-    conn.commit()
-    conn.close()
-
-    return "Tabela usuarios criada com sucesso"
     
 if __name__ == "__main__":
     criar_banco()
