@@ -179,7 +179,13 @@ def editar(id):
 
 @app.route("/importar", methods=["POST"])
 def importar():
+    if "arquivo" not in request.files:
+        return redirect("/")
+
     arquivo = request.files["arquivo"]
+
+    if arquivo.filename == "":
+        return redirect("/")
 
     caminho = os.path.join(UPLOAD_FOLDER, arquivo.filename)
     arquivo.save(caminho)
